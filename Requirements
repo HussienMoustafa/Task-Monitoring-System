@@ -1,0 +1,36 @@
+The project required features:
+******************************
+1. User inserts his/her tasks that need to be tracked.
+
+2. User can assign specific time for each task.
+
+3. User can mark the finished tasks.
+
+4. Push a notification at the time of each task.
+
+5. User can assign a score for each task.
+
+6. Provide a weekly report of all the activities showing the finished and unfinished
+tasks and the overall score of the week.
+
+7. Support three different levels for each user; one for the beginner is bronze type,
+after preserving high scores for one month, level goes to silver type, and in case
+of preserving the silver level for one month, level goes to golden type.
+
+8. Hall of fame showing top users.
+
+9. System can provide recommendations to the user based on his historical tasks.
+
+10. Users can interact with the system using voice and text.
+
+
+The additional features:
+************************ 
+1. Gamification:
+Each User has an avatar [Account] with health points (hp) , experience points
+(xp) , gold points (gp) . There are Dailies (repetitive daily or weekly) and To-DoTasks (not repetitive) for every user . If they are achieved , the user defeats the
+boss and gets more (xp) . If not achieved by the end of the Day , host will defeat
+the user in health points . Using the gold points , User can buy items and weapons
+from shop . App is divided into levels .To complete a level, it is a must to
+complete specific amount of (xp) . At the beginning of each level , (xp) will be
+reset . Based on (xp) , users would be sorted in hall of fame .
