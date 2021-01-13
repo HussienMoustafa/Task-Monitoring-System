@@ -1,0 +1,78 @@
+Estimated project cost :
+
+Assumptions : when we speak about how much a person gets paid per month ; it is taken into consideration the effort cost, the tools costs, the travel and training costs and the overheads. The only remainder to calculate the price is the profit which may vary based on economic and business considerations.
+We start with a function related measure which is 
+
+Function points 
+we identify the following:
+external user inputs ,external user outputs ,user interactions ,internal files and external interfaces.
+Then we assign for each one a value between 3 and 15 the higher the number the more complex the item.
+So assuming the weighting factor for the parameters as average complexity which  is respectively 4, 5, 4, 10 and 7 .
+By multiblying the weighting factor to the number of parameters we get an unadjusted functionpoint count = 60
+Then we take complexity into account by considering these 14 factors
+1.	Backup and recovery
+2.	Data communication 
+3.	Distributed processing functions 
+4.	Is performance critical?
+5.	Existing operating environment
+6.	On-line data entry
+7.	Input transaction built over multiple screens
+8.	Master files updated on-line
+9.	Complexity of inputs, outputs, files, inquiries
+10.	Complexity of processing
+11.	Code design for re-use
+12.	Are conversion/installation included in design?
+13.	Multiple installations .
+14.	Application designed to facilitate change by the user.
+Each factor is rated on a scale of zero to five: Zero: not important or not applicable Five: absolutely essential  we use the symbol Fi (i is the number of the factor)
+0 ≤ Fi ≤ 5
+UFC: Unadjusted Function Point count
+FP(functional points taking complexity into consideration)
+FP = UFC * ( 0.65 + 0.01 *(summation Fi))
+Assuming avg of 2 
+FP = 60*(0.65+(0.1*28))=207
+We have 207 functional points
+Assuming 15 functional point for every person/month
+We need around 14 person/month 
+Assuming the salary for person per month is 20 k$
+The estimated project cost = 280 k $
+
+The second method for cost estimation is 
+Expert judgment 
+
+Usually we ask an expert in software and another expert in the domain to estimate the cost of the project and they get fees in return .
+The expert estimation for a project with less than average complexity like ours is between 150 k$ and 180 k$
+Based on the number of loc and how much an engineer do per hour and the engineering rate .
+LOC = AVC * number of function points =72*18=3726 line
+Assuming the engineer writes 10 lines per day we need 17 person per month
+Assuming the number of hours of work in month = 180
+Ang the rate per hour = 50$ in western Europe and the middle east 
+The expert cost estimation is 153 k$
+
+The third method is 
+Cocomo II
+
+PM = A × Size^B × M
+M = PERS×RCPX×RUSE×PDIF×PREX×FCIL×SCED
+A = 2.94 in initial calibration, Size in Kilo Line Of Code  (KLOC), B varies from 1.1 to 1.24 depending on novelty of the project, development flexibility, risk management approaches and the process maturity
+Kloc =3.726
+Assuming B = 1.6
+And M = 1
+PM = 2.94*(3.726^1.6)=24.11
+We have about 25 person/month
+The initial cocomo estimate without the multibliers = 25*20000=500k$
+
+Adjusted cocomo estimate
+
+Reliability: very higher ,multiplier = 0.75
+Complexity: very low , multiplier = 0.75
+Memory constraints: none ,multiplier = 1
+Tool use: very high,multiplier =0.72
+Schedule : normal ,multiplier =1
+Adjusted cocomo estimate = 25 person month
+Total cost = 25*20k=202k$
+
+
+Fuctional points cost 	Expert cost estimation	Unadjusted cocomo II 	Adjusted cocomo II
+280k$	153k$	500k$	202k$
+
