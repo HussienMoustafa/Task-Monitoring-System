@@ -1,0 +1,79 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html>
+  <body>
+    
+    <div class="card-body">
+      <form method="POST" data-url="{% url 'todo:edit-task' form.instance.id %}" class="create-form">
+        {% csrf_token %}
+        
+        <div class="row">
+          <div class="col-md-4">
+            {{ form.task | as_crispy_field }}
+          </div>
+          <div class="col-md-4">
+            {{ form.start_date | as_crispy_field }}
+          </div>
+          <div class="col-md-4">
+            {{ form.end_date | as_crispy_field }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            {{ form.is_finished | as_crispy_field }}
+          </div>
+          <div class="col-md-4">
+            {{ form.rate | as_crispy_field }}
+          </div>
+        </div>
+        <br>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Update Task</button>
+            </div>
+      </form>
+    </div>
+    <script>
+    $(document).ready(function(){
+      x = $("#id_is_finished").val();
+      if (x == 'Yes'){
+        $("#id_rate").attr('disabled', false);
+      }else{
+        $("#id_rate").attr('disabled', true);
+      }
+    })
+    $('#id_start_date,#id_end_date').datetimepicker({
+      timepicker: true,
+      datepicker: true,
+      format: 'Y-m-d H:i',
+      hours12:false,
+      step: 10,
+      yearStart: 2020,
+    });
+    
+    $('#id_start_date').click(function(){
+      $("#id_start_date").css("background-color","#99cc00");
+      $("#id_end_date").css("background-color","#ccc");
+    })
+    $('#id_end_date').click(function(){
+      $("#id_end_date").css("background-color","#99cc00");
+      $("#id_start_date").css("background-color","#ccc");
+    })
+    $('#id_task').click(function(){
+      $("#id_start_date").css("background-color","#ccc");
+      $("#id_end_date").css("background-color","#ccc");
+    })
+    $('#id_is_finished').change(function(){
+      x = $("#id_is_finished").val();
+      if (x == 'Yes'){
+        $("#id_rate").attr('disabled', false);
+        //$("#id_rate").val('0')
+      }else{
+        $("#id_rate").val('0')
+        $("#id_rate").attr('disabled', true);
+      }
+    })
+    
+    </script>
+</body>
+</html>
+

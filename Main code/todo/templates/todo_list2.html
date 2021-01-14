@@ -1,0 +1,47 @@
+<!doctype html>
+{% for todo in get_todo %}  
+<tr>
+  <th scope="row">{{todo.task}}</th>
+  <td>{{todo.start_date}}</td>
+  <td>{{todo.end_date}}</td>
+  <td>{{todo.is_finished}}</td>
+  <td>{{todo.rate}} / 10</td>
+  <td>
+    <button class="btn btn-sm btn-outline-info show-form-update" data-url="{% url 'todo:edit-task' todo.id %}">
+        <i class="fas fa-edit" aria-hidden="true"></i>
+        </button>
+</td>
+<td>
+  <button class="btn btn-sm btn-outline-danger show-form-update" data-url="{% url 'todo:delete-task' todo.id %}">
+    <i class="fas fa-trash-alt"></i>
+      </button>
+</td>
+</tr>
+<script>
+  window.setInterval(function(){
+  st_year = "{{todo.start_date | date:'Y'}}";
+  st_year = parseInt(st_year, 10);
+  st_month = "{{todo.start_date | date:'m'}}";
+  st_month = parseInt(st_month, 10);
+  st_day = "{{todo.start_date | date:'d'}}";
+  st_day = parseInt(st_day, 10);
+  st_hour = "{{todo.start_date | time:'G'}}";
+  st_hour = parseInt(st_hour, 10);
+  st_min = "{{todo.start_date | time:'i'}}";
+  st_min = parseInt(st_min, 10);
+  var date = new Date();
+  if(date.getFullYear() === st_year && date.getMonth()+1 === st_month && date.getDate() === st_day && date.getHours() === st_hour && date.getMinutes() === st_min){
+    //alert("{{todo.task}} Has been started")
+    $.notify(
+      "{{todo.task}} Has been started", 
+      { position:"top left",
+      className: 'success',
+      showAnimation: 'slideDown',
+      hideAnimation: 'slideUp',
+      showDuration: 1000,
+      autoHideDelay: 5000, }
+      ); 
+}
+}, 60000); // Repeat every 60000 milliseconds (1 minute)
+</script>
+{%endfor%}

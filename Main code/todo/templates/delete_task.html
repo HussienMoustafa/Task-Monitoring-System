@@ -1,0 +1,15 @@
+
+<form method="post" data-url="{% url 'todo:delete-task' todo.id %}" class="delete-form">
+	{% csrf_token %}
+		<div class="modal-header">
+		<h5 class="modal-title" >Delete Task</h5>
+
+		</div>
+		<div class="modal-body">
+		<p class="lead"> Are you sure you want to delete this task <strong>{{todo.task}}</strong></p>
+		</div>
+		<div class="modal-footer">
+		
+		<button type="submit" class="btn btn-danger">Delete Task</button>
+		</div>
+</form>
